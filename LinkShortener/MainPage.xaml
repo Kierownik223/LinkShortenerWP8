@@ -41,7 +41,7 @@
         <phone:Pivot x:Name="MainPivot" Title="LINKSHORTENER">
             <phone:PivotItem x:Name="ShortenItem" Header="shorten">
                 <StackPanel>
-                    <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="URL to shorten" Margin="10,0,0,0"/>
+                    <TextBlock TextWrapping="Wrap" Text="URL to shorten" Margin="10,0,0,0"/>
                     <TextBox x:Name="UrlTextBox" Height="72" TextWrapping="Wrap" InputScope="Url" KeyDown="UrlTextBox_KeyDown"/>
                     <Button x:Name="ShortenButton" Content="Shorten URL!" Click="ShortenButton_Click"/>
                     <TextBlock x:Name="LabelStats" TextWrapping="Wrap" Margin="10,0" TextAlignment="Center" Text="Links in database: N/A&#xA;Total clicks: N/A" Tap="LabelStats_Tap"/>
@@ -51,7 +51,7 @@
 
             <phone:PivotItem x:Name="CheckItem" Header="check">
                 <StackPanel>
-                    <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="URL to check" Margin="10,0,0,0"/>
+                    <TextBlock TextWrapping="Wrap" Text="URL to check" Margin="10,0,0,0"/>
                     <TextBox x:Name="CheckTextBox" Height="72" TextWrapping="Wrap" InputScope="Url" KeyDown="CheckTextBox_KeyDown"/>
                     <Button x:Name="CheckButton" Content="Check URL!" Click="CheckButton_Click"/>
                     <TextBlock x:Name="LabelCheckedUrl" TextWrapping="Wrap" TextAlignment="Center" Height="54" Margin="10,10,10,0" Tap="TextBlock_Tap"/>

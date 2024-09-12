@@ -31,9 +31,9 @@
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="Server URL" Margin="10,10,0,0"/>
             <TextBox x:Name="ServerUrlTextBox" TextWrapping="Wrap"/>
-            <Button x:Name="ChangeServerUrlButton" Content="Change server URL" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="ChangeServerUrlButton_Click" FontFamily="Portable User Interface"/>
-            <toolkit:ToggleSwitch x:Name="SaveDataSwitch" Header="Save mobile data" SwitchForeground="{StaticResource PhoneAccentBrush}" IsChecked="True" Checked="SaveDataSwitch_Checked" Unchecked="SaveDataSwitch_Checked" Margin="0,0,-20,0" FontFamily="Portable User Interface"/>
-            <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" Foreground="{StaticResource PhoneSubtleBrush}"  TextWrapping="Wrap" Text="Makes the app use less mobile data by not downloading statistics from the server." Margin="10,0" FontFamily="Portable User Interface"/>
+            <Button x:Name="ChangeServerUrlButton" Content="Change server URL" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="ChangeServerUrlButton_Click"/>
+            <toolkit:ToggleSwitch x:Name="SaveDataSwitch" Header="Save mobile data" SwitchForeground="{StaticResource PhoneAccentBrush}" IsChecked="True" Checked="SaveDataSwitch_Checked" Unchecked="SaveDataSwitch_Checked" Margin="0,0,-20,0"/>
+            <TextBlock Foreground="{StaticResource PhoneSubtleBrush}"  TextWrapping="Wrap" Text="Makes the app use less mobile data by not downloading statistics from the server." Margin="10,-15,10,0"/>
         </StackPanel>
     </Grid>
 
