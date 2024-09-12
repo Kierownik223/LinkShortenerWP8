@@ -1,0 +1,75 @@
+﻿
+    <phone:PhoneApplicationPage
+    x:Class="LinkShortener.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideUpFadeIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeOut" />
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideUpFadeOut" />
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <phone:Pivot x:Name="MainPivot" Title="LINKSHORTENER">
+            <phone:PivotItem x:Name="ShortenItem" Header="shorten">
+                <StackPanel>
+                    <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="URL to shorten" Margin="10,0,0,0"/>
+                    <TextBox x:Name="UrlTextBox" Height="72" TextWrapping="Wrap" InputScope="Url" KeyDown="UrlTextBox_KeyDown"/>
+                    <Button x:Name="ShortenButton" Content="Shorten URL!" Click="ShortenButton_Click"/>
+                    <TextBlock x:Name="LabelStats" TextWrapping="Wrap" Margin="10,0" TextAlignment="Center" Text="Links in database: N/A&#xA;Total clicks: N/A" Tap="LabelStats_Tap"/>
+                    <TextBlock x:Name="LabelShortnedUrl" TextWrapping="Wrap" TextAlignment="Center" Height="54" Margin="10,10,10,0" Tap="TextBlock_Tap"/>
+                </StackPanel>
+            </phone:PivotItem>
+
+            <phone:PivotItem x:Name="CheckItem" Header="check">
+                <StackPanel>
+                    <TextBlock FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="URL to check" Margin="10,0,0,0"/>
+                    <TextBox x:Name="CheckTextBox" Height="72" TextWrapping="Wrap" InputScope="Url" KeyDown="CheckTextBox_KeyDown"/>
+                    <Button x:Name="CheckButton" Content="Check URL!" Click="CheckButton_Click"/>
+                    <TextBlock x:Name="LabelCheckedUrl" TextWrapping="Wrap" TextAlignment="Center" Height="54" Margin="10,10,10,0" Tap="TextBlock_Tap"/>
+                </StackPanel>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="SettingsMenuItem" IsEnabled="True" Text="settings" Click="SettingsMenuItem_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="AboutMenuItem" IsEnabled="True" Text="about" Click="AboutMenuItem_Click"/>
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton x:Name="RefreshStatsButton" IconUri="/Assets/AppBar/refresh.png" IsEnabled="True" Text="Refresh stats" Click="RefreshStatsButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="ShareUrlButton" IconUri="/Assets/AppBar/share.png" IsEnabled="True" Text="Share URL" Click="ShareUrlButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,57 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="LinkShortener.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="LINKSHORTENER" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
+            <TextBlock Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock x:Name="AppVersionLabel" HorizontalAlignment="Left" Text="Version N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="24"/>
+            <TextBlock x:Name="ServerVersionLabel" HorizontalAlignment="Left" Text="Server version: N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" Tap="ServerVersionLabel_Tap"/>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="https://marmak.net.pl/images/Kierownik223.png" Stretch="UniformToFill" Width="75" Height="75"/>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock x:Name="Kierownik" Text="Kierownik223" FontSize="36" TextDecorations="Underline" Foreground="{StaticResource PhoneAccentBrush}" Tap="Kierownik_Tap"/>
+                    <TextBlock Text="Client author, developer"/>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="https://marmak.net.pl/images/Olek47.png" Stretch="UniformToFill" Width="75" Height="75"/>
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock x:Name="Olek" Text="Olek47" FontSize="36" Foreground="{StaticResource PhoneAccentBrush}" TextDecorations="Underline" Tap="Olek_Tap"/>
+                    <TextBlock Text="Server author, developer"/>
+                </StackPanel>
+            </Grid>
+            <Button x:Name="VisitWebsiteButton" Content="Visit website" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="VisitWebsiteButton_Click"/>
+            <Button x:Name="VisitGithubButton" Content="GitHub" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="VisitGithubButton_Click"/>
+        </StackPanel>
+    </Grid>
+
+</phone:PhoneApplicationPage>
