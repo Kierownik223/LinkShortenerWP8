@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
-  <DefaultLanguage xmlns="" code="en-US" />
+  <DefaultLanguage xmlns="" code="en" />
   <Languages xmlns="">
     <Language code="en" />
   </Languages>
-  <App xmlns="" ProductID="{e143df4e-a54f-428f-8897-13e45e2bed06}" Title="LinkShortener" RuntimeType="Silverlight" Version="1.2.0" Genre="apps.normal" Author="Kierownik223" Description="LinkShortener client for Windows Phone 8.1+" Publisher="MARMAK S.C." PublisherID="{d1a948f3-3b50-495b-8ffa-f757c6a0373f}">
+  <App xmlns="" ProductID="{e143df4e-a54f-428f-8897-13e45e2bed06}" Title="LinkShortener" RuntimeType="Silverlight" Version="1.2.1" Genre="apps.normal" Author="Kierownik223" Description="LinkShortener client for Windows Phone 8.1+" Publisher="MARMAK S.C." PublisherID="{d1a948f3-3b50-495b-8ffa-f757c6a0373f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
