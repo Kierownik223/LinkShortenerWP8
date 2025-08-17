@@ -154,14 +154,15 @@ namespace LinkShortener
                 StringContent content = new StringContent("{\"url\": \"" + url + "\"}", System.Text.Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await client.PostAsync(apiUrl + "/url", content);
-
+                
                 string resultJson = await response.Content.ReadAsStringAsync();
 
-                if (string.IsNullOrEmpty(resultJson) || resultJson.StartsWith("<"))
+                if (!resultJson.StartsWith("{"))
                 {
-                    MessageBox.Show("The server returned an incorrect value! Please verify the server adress and your Internet connection.", "LinkShortener", MessageBoxButton.OK);
+                    MessageBox.Show(resultJson, "Error", MessageBoxButton.OK);
                     return;
                 }
+
                 JObject apiResponse = JObject.Parse(resultJson);
 
                 string error = apiResponse.Value<string>("error");
@@ -229,11 +230,13 @@ namespace LinkShortener
 
                 HttpResponseMessage response = await client.GetAsync(apiUrlWithId);
                 string resultJson = await response.Content.ReadAsStringAsync();
-                if (string.IsNullOrEmpty(resultJson) || resultJson.StartsWith("<"))
+
+                if (!resultJson.StartsWith("{"))
                 {
-                    MessageBox.Show("The server returned an incorrect value! Please verify the server adress and your Internet connection.", "LinkShortener", MessageBoxButton.OK);
+                    MessageBox.Show(resultJson, "Error", MessageBoxButton.OK);
                     return;
                 }
+
                 JObject apiResponse = JObject.Parse(resultJson);
                 string error = apiResponse.Value<string>("error");
 
