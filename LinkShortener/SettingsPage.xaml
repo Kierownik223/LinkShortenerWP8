@@ -50,7 +50,7 @@
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="3" FontSize="{StaticResource PhoneFontSizeSmall}" TextWrapping="Wrap" Text="Server URL" Margin="10,10,0,0"/>
             <TextBox toolkit:TurnstileFeatherEffect.FeatheringIndex="4" x:Name="ServerUrlTextBox" TextWrapping="Wrap"/>
             <Button toolkit:TurnstileFeatherEffect.FeatheringIndex="5" x:Name="ChangeServerUrlButton" Content="Change server URL" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="ChangeServerUrlButton_Click"/>
-            <toolkit:ToggleSwitch toolkit:TurnstileFeatherEffect.FeatheringIndex="6" x:Name="SaveDataSwitch" Header="Save mobile data" SwitchForeground="{StaticResource PhoneAccentBrush}" IsChecked="True" Checked="SaveDataSwitch_Checked" Unchecked="SaveDataSwitch_Checked" Margin="0,0,-10,0"/>
+            <toolkit:ToggleSwitch toolkit:TurnstileFeatherEffect.FeatheringIndex="6" x:Name="SaveDataSwitch" Header="Save mobile data" SwitchForeground="{StaticResource PhoneAccentBrush}" IsChecked="True" Checked="SaveDataSwitch_Checked" Unchecked="SaveDataSwitch_Checked"/>
             <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="7" Foreground="{StaticResource PhoneSubtleBrush}" TextWrapping="Wrap" Text="Makes the app use less mobile data by not downloading statistics from the server." Margin="10,-15,10,0"/>
         </StackPanel>
     </Grid>
