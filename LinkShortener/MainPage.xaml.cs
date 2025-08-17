@@ -21,11 +21,15 @@ namespace LinkShortener
     public partial class MainPage : PhoneApplicationPage
     {
         public string apiUrl = "https://short.marmak.net.pl/api";
-        HttpClient client;
+        public HttpClient client;
+
+        public static MainPage Current;
 
         public MainPage()
         {
             InitializeComponent();
+
+            Current = this;
 
             IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
 

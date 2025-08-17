@@ -18,7 +18,6 @@ namespace LinkShortener
     public partial class AboutPage : PhoneApplicationPage
     {
         string apiUrl;
-        HttpClient client;
 
         public AboutPage()
         {
@@ -27,16 +26,12 @@ namespace LinkShortener
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            client = new HttpClient();
             var nameHelper = new AssemblyName(Assembly.GetExecutingAssembly().FullName);
 
             var version = nameHelper.Version;
 
             IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
-
-            client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "LinkShortener for WP8 v" + version.Major + "." + version.Minor + "." + version.Build);
-
+            
             if (!settings.TryGetValue<string>("server_url", out apiUrl))
             {
                 apiUrl = "https://short.marmak.net.pl/api";
@@ -54,7 +49,7 @@ namespace LinkShortener
         {
             try
             {
-                HttpResponseMessage response = await client.GetAsync(apiUrl + "/version");
+                HttpResponseMessage response = await MainPage.Current.client.GetAsync(apiUrl + "/version");
 
                 string resultJson = await response.Content.ReadAsStringAsync();
                 JObject apiResponse = JObject.Parse(resultJson);
