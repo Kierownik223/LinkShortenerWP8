@@ -18,7 +18,7 @@
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
             <toolkit:NavigationInTransition.Backward>
-                <toolkit:SlideTransition Mode="SlideUpFadeIn" />
+                <toolkit:SlideTransition Mode="SlideDownFadeIn" />
             </toolkit:NavigationInTransition.Backward>
             <toolkit:NavigationInTransition.Forward>
                 <toolkit:SlideTransition Mode="SlideUpFadeIn" />
@@ -28,7 +28,7 @@
     <toolkit:TransitionService.NavigationOutTransition>
         <toolkit:NavigationOutTransition>
             <toolkit:NavigationOutTransition.Backward>
-                <toolkit:SlideTransition Mode="SlideUpFadeOut" />
+                <toolkit:SlideTransition Mode="SlideDownFadeOut" />
             </toolkit:NavigationOutTransition.Backward>
             <toolkit:NavigationOutTransition.Forward>
                 <toolkit:SlideTransition Mode="SlideUpFadeOut" />
@@ -37,7 +37,6 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
-
         <phone:Pivot x:Name="MainPivot" Title="LINKSHORTENER">
             <phone:PivotItem x:Name="ShortenItem" Header="shorten">
                 <StackPanel>

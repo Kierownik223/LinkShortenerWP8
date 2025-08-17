@@ -17,20 +17,20 @@
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
             <toolkit:NavigationInTransition.Backward>
-                <toolkit:SlideTransition Mode="SlideUpFadeIn" />
+                <toolkit:TurnstileFeatherTransition Mode="BackwardIn" />
             </toolkit:NavigationInTransition.Backward>
             <toolkit:NavigationInTransition.Forward>
-                <toolkit:SlideTransition Mode="SlideUpFadeIn" />
+                <toolkit:TurnstileFeatherTransition Mode="ForwardIn" />
             </toolkit:NavigationInTransition.Forward>
         </toolkit:NavigationInTransition>
     </toolkit:TransitionService.NavigationInTransition>
     <toolkit:TransitionService.NavigationOutTransition>
         <toolkit:NavigationOutTransition>
             <toolkit:NavigationOutTransition.Backward>
-                <toolkit:SlideTransition Mode="SlideUpFadeOut" />
+                <toolkit:TurnstileFeatherTransition Mode="BackwardOut" />
             </toolkit:NavigationOutTransition.Backward>
             <toolkit:NavigationOutTransition.Forward>
-                <toolkit:SlideTransition Mode="SlideUpFadeOut" />
+                <toolkit:TurnstileFeatherTransition Mode="ForwardOut" />
             </toolkit:NavigationOutTransition.Forward>
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
@@ -42,14 +42,14 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="LINKSHORTENER" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
-            <TextBlock Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="0" Text="LINKSHORTENER" Style="{StaticResource PhoneTextNormalStyle}" FontFamily="Segoe WP Semibold" FontSize="22.667"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="1" Text="about" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock x:Name="AppVersionLabel" HorizontalAlignment="Left" Text="Version N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="24"/>
-            <TextBlock x:Name="ServerVersionLabel" HorizontalAlignment="Left" Text="Server version: N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" Tap="ServerVersionLabel_Tap"/>
-            <Grid Margin="10">
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="2" x:Name="AppVersionLabel" HorizontalAlignment="Left" Text="Version N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="24"/>
+            <TextBlock toolkit:TurnstileFeatherEffect.FeatheringIndex="3" x:Name="ServerVersionLabel" HorizontalAlignment="Left" Text="Server version: N/A" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,0,0,0" Tap="ServerVersionLabel_Tap"/>
+            <Grid toolkit:TurnstileFeatherEffect.FeatheringIndex="4" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
@@ -60,7 +60,7 @@
                     <TextBlock Text="Client author, developer"/>
                 </StackPanel>
             </Grid>
-            <Grid Margin="10">
+            <Grid toolkit:TurnstileFeatherEffect.FeatheringIndex="5" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
@@ -71,8 +71,8 @@
                     <TextBlock Text="Server author, developer"/>
                 </StackPanel>
             </Grid>
-            <Button x:Name="VisitWebsiteButton" Content="Visit website" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="VisitWebsiteButton_Click"/>
-            <Button x:Name="VisitGithubButton" Content="GitHub" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="VisitGithubButton_Click"/>
+            <Button toolkit:TurnstileFeatherEffect.FeatheringIndex="6" x:Name="VisitWebsiteButton" Content="Visit website" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="VisitWebsiteButton_Click"/>
+            <Button toolkit:TurnstileFeatherEffect.FeatheringIndex="7" x:Name="VisitGithubButton" Content="GitHub" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="VisitGithubButton_Click"/>
         </StackPanel>
     </Grid>
 
