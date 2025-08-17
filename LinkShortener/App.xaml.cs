@@ -60,21 +60,21 @@ namespace LinkShortener
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            try
-            {
-                ShareLaunchingEventArgs shareArgs = e as ShareLaunchingEventArgs;
+            //try
+            //{
+            //    ShareLaunchingEventArgs shareArgs = e as ShareLaunchingEventArgs;
 
-                if (shareArgs != null)
-                {
-                    DataPackageView package = shareArgs.ShareTargetActivatedEventArgs.ShareOperation.Data;
-                    Uri uri = package.GetWebLinkAsync().GetResults();
-                    ShareURI = uri.OriginalString;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    if (shareArgs != null)
+            //    {
+            //        DataPackageView package = shareArgs.ShareTargetActivatedEventArgs.ShareOperation.Data;
+            //        Uri uri = package.GetWebLinkAsync().GetResults();
+            //        ShareURI = uri.OriginalString;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         // Code to execute when the application is activated (brought to foreground)
