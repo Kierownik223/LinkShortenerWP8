@@ -41,26 +41,6 @@ namespace LinkShortener
 
         private async void ChangeServerUrlButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!MainPage.IsMobileData())
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    var nameHelper = new AssemblyName(Assembly.GetExecutingAssembly().FullName);
-
-                    var version = nameHelper.Version;
-                    client.DefaultRequestHeaders.Add("User-Agent", "LinkShortener for WP8 v" + version.Major + "." + version.Minor + "." + version.Build);
-
-                    HttpResponseMessage response = await client.GetAsync(ServerUrlTextBox.Text + "/verion");
-
-                    string resultJson = await response.Content.ReadAsStringAsync();
-
-                    if (string.IsNullOrEmpty(resultJson) || resultJson.StartsWith("<"))
-                    {
-                        MessageBox.Show("The server returned an incorrect value! Please verify the server adress and your Internet connection.", "LinkShortener", MessageBoxButton.OK);
-                        return;
-                    }
-                }
-            }
             MessageBox.Show("Server URL changed successfully!", "LinkShortener", MessageBoxButton.OK);
             IsolatedStorageSettings settings = IsolatedStorageSettings.ApplicationSettings;
             settings["server_url"] = ServerUrlTextBox.Text;
