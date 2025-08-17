@@ -131,7 +131,6 @@ namespace LinkShortener
 
         private async void ShortenButton_Click(object sender, RoutedEventArgs e)
         {
-
             string url = UrlTextBox.Text;
 
             if (!DeviceNetworkInformation.IsNetworkAvailable)
@@ -157,6 +156,7 @@ namespace LinkShortener
                 HttpResponseMessage response = await client.PostAsync(apiUrl + "/url", content);
 
                 string resultJson = await response.Content.ReadAsStringAsync();
+
                 if (string.IsNullOrEmpty(resultJson) || resultJson.StartsWith("<"))
                 {
                     MessageBox.Show("The server returned an incorrect value! Please verify the server adress and your Internet connection.", "LinkShortener", MessageBoxButton.OK);
@@ -168,6 +168,19 @@ namespace LinkShortener
 
                 if (!string.IsNullOrEmpty(error))
                 {
+                    if (error.Contains("an hour!"))
+                    {
+                        int retryAfter = 0;
+                        if (response.Headers.Contains("Retry-After"))
+                        {
+                            IEnumerable<string> values;
+                            if (response.Headers.TryGetValues("Retry-After", out values))
+                            {
+                                retryAfter = int.Parse(values.First());
+                            }
+                        }
+                        error = error.Replace("an hour", FormatSeconds(retryAfter));
+                    }
                     MessageBox.Show(error, "Error", MessageBoxButton.OK);
                 }
                 else
@@ -283,6 +296,19 @@ namespace LinkShortener
         {
             if (e.Key == System.Windows.Input.Key.Enter)
                 CheckButton_Click(null, null);
+        }
+
+        public static string FormatSeconds(int totalSeconds)
+        {
+            if (totalSeconds < 60)
+            {
+                return totalSeconds + " second" + (totalSeconds != 1 ? "s" : "");
+            }
+
+            int minutes = totalSeconds / 60;
+            int seconds = totalSeconds % 60;
+
+            return minutes + " minute" + (minutes != 1 ? "s" : "") + " and " + seconds + " second" + (seconds != 1 ? "s" : "");
         }
     }
 }
