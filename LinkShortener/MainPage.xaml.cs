@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using System.IO.IsolatedStorage;
 using System.Reflection;
 using Microsoft.Phone.Tasks;
+using Microsoft.Phone.Info;
 
 namespace LinkShortener
 {
@@ -33,7 +34,7 @@ namespace LinkShortener
             var version = nameHelper.Version;
 
             client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "LinkShortener for WP8 v" + version.Major + "." + version.Minor + "." + version.Build);
+            client.DefaultRequestHeaders.Add("User-Agent", $"LinkShortener/{version} (Windows Phone {Environment.OSVersion.Version.ToString(2)}; {DeviceStatus.DeviceManufacturer} {DeviceStatus.DeviceName})");
 
             if (!settings.TryGetValue<string>("server_url", out apiUrl))
             {
