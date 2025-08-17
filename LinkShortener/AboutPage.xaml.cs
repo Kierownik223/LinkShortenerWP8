@@ -42,7 +42,7 @@ namespace LinkShortener
                 DisplayServerVersion();
             }
 
-            AppVersionLabel.Text = "Version " + version.Major + "." + version.Minor + "." + version.Build;
+            AppVersionLabel.Text = "Version " + version;
         }
 
         private async void DisplayServerVersion()
